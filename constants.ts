@@ -73,5 +73,6 @@ export const NAV_LINKS = [
   { label: 'Philosophy', href: '#philosophy' },
   { label: 'Portfolio', href: '#portfolio' },
   { label: 'Market Insights', href: '#insights' },
+  { label: 'Investor Portal', href: '#portal' },
   { label: 'Contact', href: '#contact' },
 ];

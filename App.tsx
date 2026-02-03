@@ -6,6 +6,7 @@ import MarketInsights from './components/MarketInsights';
 import Portfolio from './components/Portfolio';
 import AIAdvisor from './components/AIAdvisor';
 import Testimonials from './components/Testimonials';
+import InvestorSection from './components/InvestorSection';
 import Footer from './components/Footer';
 import LoginModal from './components/LoginModal';
 
@@ -34,8 +35,12 @@ function App() {
         <MarketInsights />
         <Portfolio />
         
+        <InvestorSection />
+
+        <Testimonials />
+
         {/* Call to Action */}
-        <section className="py-32 relative overflow-hidden flex items-center justify-center">
+        <section className="py-32 relative overflow-hidden flex items-center justify-center border-t border-white/5">
             <div className="absolute inset-0 z-0">
                 <img src="https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?q=80&w=2000&auto=format&fit=crop" alt="Luxury Interior" className="w-full h-full object-cover opacity-20" />
                 <div className="absolute inset-0 bg-gradient-to-t from-brand-dark via-brand-dark/80 to-transparent" />
@@ -53,8 +58,6 @@ function App() {
                 </button>
             </div>
         </section>
-
-        <Testimonials />
       </main>
 
       <Footer onLoginClick={() => setIsLoginOpen(true)} />
