@@ -1,7 +1,11 @@
 import React from 'react';
 import { NAV_LINKS } from '../constants';
 
-const Footer: React.FC = () => {
+interface FooterProps {
+  onLoginClick: () => void;
+}
+
+const Footer: React.FC<FooterProps> = ({ onLoginClick }) => {
   const handleScrollTo = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
     e.preventDefault();
     const element = document.querySelector(href);
@@ -42,7 +46,7 @@ const Footer: React.FC = () => {
                   </a>
                 </li>
               ))}
-              <li><a href="#" className="hover:text-brand-gold transition-colors">Privacy Policy</a></li>
+              <li><button onClick={onLoginClick} className="hover:text-brand-gold transition-colors">Investor Login</button></li>
             </ul>
           </div>
 

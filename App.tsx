@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Navigation from './components/Navigation';
 import Hero from './components/Hero';
 import StatsSection from './components/StatsSection';
@@ -7,11 +7,14 @@ import Portfolio from './components/Portfolio';
 import AIAdvisor from './components/AIAdvisor';
 import Testimonials from './components/Testimonials';
 import Footer from './components/Footer';
+import LoginModal from './components/LoginModal';
 
 function App() {
+  const [isLoginOpen, setIsLoginOpen] = useState(false);
+
   return (
     <div className="min-h-screen bg-brand-dark text-brand-cream font-sans antialiased selection:bg-brand-gold selection:text-brand-dark">
-      <Navigation />
+      <Navigation onLoginClick={() => setIsLoginOpen(true)} />
       
       <main>
         <Hero />
@@ -42,7 +45,10 @@ function App() {
                 <p className="text-gray-300 mb-10 text-lg">
                     Join a select group of investors who are shaping the future of global hospitality.
                 </p>
-                <button className="bg-brand-gold text-brand-dark px-10 py-4 text-base font-bold uppercase tracking-widest hover:bg-white hover:scale-105 transition-all duration-300 shadow-xl shadow-brand-gold/10">
+                <button 
+                  onClick={() => setIsLoginOpen(true)}
+                  className="bg-brand-gold text-brand-dark px-10 py-4 text-base font-bold uppercase tracking-widest hover:bg-white hover:scale-105 transition-all duration-300 shadow-xl shadow-brand-gold/10"
+                >
                     Become an Investor
                 </button>
             </div>
@@ -51,8 +57,10 @@ function App() {
         <Testimonials />
       </main>
 
-      <Footer />
+      <Footer onLoginClick={() => setIsLoginOpen(true)} />
       <AIAdvisor />
+      
+      <LoginModal isOpen={isLoginOpen} onClose={() => setIsLoginOpen(false)} />
     </div>
   );
 }

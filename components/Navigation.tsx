@@ -3,7 +3,11 @@ import { Menu, X, ArrowRight, TrendingUp } from 'lucide-react';
 import { NAV_LINKS } from '../constants';
 import { motion, AnimatePresence } from 'framer-motion';
 
-const Navigation: React.FC = () => {
+interface NavigationProps {
+  onLoginClick: () => void;
+}
+
+const Navigation: React.FC<NavigationProps> = ({ onLoginClick }) => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [sentiment, setSentiment] = useState("Analyzing global luxury hospitality sentiment...");
@@ -84,6 +88,7 @@ const Navigation: React.FC = () => {
             <motion.button 
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
+                onClick={onLoginClick}
                 className="bg-brand-gold text-brand-dark px-6 py-2 text-sm font-bold uppercase tracking-wider hover:bg-white transition-colors duration-300 flex items-center gap-2"
             >
                 Investor Portal <ArrowRight size={16} />
@@ -119,7 +124,10 @@ const Navigation: React.FC = () => {
                     {link.label}
                 </a>
                 ))}
-                <button className="w-full bg-brand-gold text-brand-dark px-6 py-4 text-sm font-bold uppercase tracking-wider hover:bg-white transition-colors duration-300">
+                <button 
+                  onClick={onLoginClick}
+                  className="w-full bg-brand-gold text-brand-dark px-6 py-4 text-sm font-bold uppercase tracking-wider hover:bg-white transition-colors duration-300"
+                >
                 Investor Login
                 </button>
             </motion.div>
