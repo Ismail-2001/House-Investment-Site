@@ -121,4 +121,18 @@ const StatsSection: React.FC = () => {
                     strokeWidth={2}
                     strokeDasharray="5 5"
                     fill="transparent"
-                    name="Market
+                    name="Market Avg"
+                    animationDuration={1500}
+                  />
+                </AreaChart>
+              </ResponsiveContainer>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+  );
+};
+
+export default StatsSection;
