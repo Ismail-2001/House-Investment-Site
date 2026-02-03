@@ -2,17 +2,25 @@ import React, { useEffect, useState } from 'react';
 import { fetchMarketTrends } from '../services/geminiService';
 import { MarketTrend } from '../types';
 import { motion } from 'framer-motion';
-import { Sparkles, Activity, Globe, TrendingUp } from 'lucide-react';
+import { Sparkles, Activity, Globe, TrendingUp, Clock } from 'lucide-react';
 
 const MarketInsights: React.FC = () => {
   const [trends, setTrends] = useState<MarketTrend[]>([]);
   const [loading, setLoading] = useState(true);
+  const [lastUpdated, setLastUpdated] = useState<string>('');
 
   useEffect(() => {
     const loadTrends = async () => {
       const data = await fetchMarketTrends();
       setTrends(data);
       setLoading(false);
+      
+      const cachedTime = localStorage.getItem('aura_market_trends_timestamp');
+      if (cachedTime) {
+        setLastUpdated(new Date(parseInt(cachedTime)).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' }));
+      } else {
+        setLastUpdated(new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' }));
+      }
     };
     loadTrends();
   }, []);
@@ -50,9 +58,14 @@ const MarketInsights: React.FC = () => {
              whileInView={{ opacity: 1 }}
              viewport={{ once: true }}
              transition={{ delay: 0.3 }}
-             className="text-right hidden md:block"
+             className="text-right hidden md:flex flex-col items-end"
           >
              <p className="text-gray-400 text-sm">Real-time analysis powered by Gemini 2.5</p>
+             {lastUpdated && (
+                <div className="flex items-center gap-1 text-[10px] text-brand-gold/50 uppercase tracking-widest mt-1">
+                  <Clock size={10} /> Sync: {lastUpdated}
+                </div>
+             )}
           </motion.div>
         </div>
 

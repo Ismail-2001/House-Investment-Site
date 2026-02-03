@@ -7,7 +7,7 @@ export const PROPERTIES: Property[] = [
     location: 'Amalfi, Italy',
     roi: 12.4,
     value: '€45M',
-    image: 'https://picsum.photos/800/600?random=1',
+    image: 'https://images.unsplash.com/photo-1533105079780-92b9be482077?q=80&w=800&auto=format&fit=crop',
     tags: ['Luxury', 'Resort', 'Coastal']
   },
   {
@@ -16,7 +16,7 @@ export const PROPERTIES: Property[] = [
     location: 'Tokyo, Japan',
     roi: 9.8,
     value: '¥8.2B',
-    image: 'https://picsum.photos/800/600?random=2',
+    image: 'https://images.unsplash.com/photo-1540959733332-eab4deabeeaf?q=80&w=800&auto=format&fit=crop',
     tags: ['Urban', 'Business', 'High-Rise']
   },
   {
@@ -25,7 +25,7 @@ export const PROPERTIES: Property[] = [
     location: 'Marrakech, Morocco',
     roi: 14.2,
     value: '$28M',
-    image: 'https://picsum.photos/800/600?random=3',
+    image: 'https://images.unsplash.com/photo-1541979017773-512370ae099d?q=80&w=800&auto=format&fit=crop',
     tags: ['Boutique', 'Experience', 'Desert']
   },
   {
@@ -34,7 +34,7 @@ export const PROPERTIES: Property[] = [
     location: 'Zermatt, Switzerland',
     roi: 11.5,
     value: 'CHF 62M',
-    image: 'https://picsum.photos/800/600?random=4',
+    image: 'https://images.unsplash.com/photo-1502784444187-359ac186c5bb?q=80&w=800&auto=format&fit=crop',
     tags: ['Ski', 'Winter', 'Luxury']
   }
 ];

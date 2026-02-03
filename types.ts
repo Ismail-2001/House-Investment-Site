@@ -14,11 +14,17 @@ export interface ChartDataPoint {
   marketAverage: number;
 }
 
+export interface GroundingSource {
+  title: string;
+  uri: string;
+}
+
 export interface ChatMessage {
   id: string;
   role: 'user' | 'model';
   text: string;
   timestamp: Date;
+  groundingSources?: GroundingSource[];
 }
 
 export interface Testimonial {
@@ -31,6 +37,13 @@ export interface Testimonial {
 export interface MarketTrend {
   title: string;
   description: string;
+}
+
+export interface AssetAnalysis {
+  marketMoat: string;
+  revenueDrivers: string[];
+  riskMitigation: string;
+  exitStrategy: string;
 }
 
 export enum ViewState {
